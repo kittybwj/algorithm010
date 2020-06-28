@@ -35,7 +35,50 @@ public void recur(int level, int param) {
 * 数学归纳法思维
 
 
+### 二、第8课：分治、回溯
 
+**分治、回溯 ——> 特殊的递归——>找重复性**
+
+#### 1、分治（divide& conquer）
+
+* divide ——> conquer ——> merge
+
+* problem ——> sub-problem ——> sub-solution ——> solution
+
+分治代码模板
+
+```
+public void divideConquer(problem, param1, param2) {
+		// recursion terminater(递归终结条件)
+		if (problem is null) {
+				// process result
+				return;
+		}
+		// prepare data (将大问题分成一个个子问题)
+		data = prepareData(problem);
+		subProblems = splitProblem(problem, data);
+
+		// conquer subproblems（逐一解决子问题，获得子问题的结果）
+		subResult1 = divideConquer(subProblems[1],p1,p2);
+		subResult2 = divideConquer(subProblems[2],p1,p2);
+		subResult3 = divideConquer(subProblems[3],p1,p2);
+
+    // process and generate the final result（将subSolution组合成Solution）
+    result = processResult(subResult1, subResult2, subResult3 ...)
+
+    //restore current status（清理当前层）
+}
+```
+
+#### 2、回溯（Backtracking）
+
+* 用递归来实现
+
+1）采用试错的思想，尝试分步解决一个问题
+
+2）在分布过程中，如果发现现有不能满足，则取消上一步或上几部的计算
+
+* 归去来兮
 
 
 
